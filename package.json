@@ -17,14 +17,19 @@
   },
   "homepage": "https://github.com/elton59/backendMetersApi#readme",
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.22"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "express-session": "^1.17.2",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "express-validator": "^7.1.0",
+    "google-auth-library": "^9.11.0",
+    "googleapis": "^140.0.1",
+    "multer": "^1.4.5-lts.1",
     "mysql": "^2.18.1",
-    "serve": "^12.0.1",
-    "tedious": "^12.2.0"
+    "nodemailer": "^6.9.14",
+    "serve": "^14.2.0",
+    "tedious": "^15.1.0"
   }
 }
