@@ -10,6 +10,7 @@ module.exports = class CartItem {
     this.phone_number = phone_number;
     this.created_at = created_at;
     this.updated_at = updated_at;
+    this.price = price;
     this.order_status = order_status;
   }
 
@@ -86,10 +87,10 @@ module.exports = class CartItem {
   }
 
   // Create a new cart item
-  static create(cart_id, product_id, quantity, email, phone_number, callback) {
+  static create(cart_id, product_id, quantity, email, phone_number,price, callback) {
     conn.query(
-      "INSERT INTO cart_items (cart_id, product_id, quantity, email, phone_number) VALUES (?, ?, ?, ?, ?)",
-      [cart_id, product_id, quantity, email, phone_number],
+      "INSERT INTO cart_items (cart_id, product_id, quantity, email, phone_number,price) VALUES (?, ?, ?, ?, ?,?)",
+      [cart_id, product_id, quantity, email, phone_number,price],
       (err, results) => {
         if (err) {
           console.error(`Error executing SQL: ${err}`);

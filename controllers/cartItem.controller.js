@@ -11,13 +11,13 @@ exports.getAllCartItems = (req, res) => {
 };
 // Create a new cart item
 exports.createCartItem = (req, res) => {
-  const { cart_id, product_id, quantity, email, phone_number } = req.body;
+  const { cart_id, product_id, quantity, email, phone_number,price } = req.body;
 
-  if (!cart_id || !product_id || !quantity || !email || !phone_number) {
+  if (!cart_id || !product_id || !quantity || !email || !phone_number|| !price) {
     return res.status(400).json({ error: "All fields are required" });
   }
 
-  CartItem.create(cart_id, product_id, quantity, email, phone_number, (err, result) => {
+  CartItem.create(cart_id, product_id, quantity, email, phone_number, price,(err, result) => {
     if (err) {
       return res.status(500).json({ error: "Failed to create cart item" });
     }
