@@ -22,7 +22,7 @@ app.use(session({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-
+app.options('*', cors()); 
 // Routes setup
 app.use('/api/products', require('./routes/product.route'));
 app.use('/api/carts', require('./routes/cart.route'));
