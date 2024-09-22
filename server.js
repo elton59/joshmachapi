@@ -4,20 +4,8 @@ const session = require('express-session');
 const cors = require('cors');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
-const multer = require('multer');
 const nodemailer = require('nodemailer');
 
-// Multer storage configuration
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, 'product_images/'));
-    },
-    filename: (req, file, cb) => {
-        cb(null, `${Date.now()}-${file.originalname}`);
-    }
-});
-
-const upload = multer({ storage });
 
 app.set('trust proxy', 1);
 
@@ -85,13 +73,6 @@ app.post('/api/send-email', (req, res) => {
     });
 });
 
-// Endpoint to handle image upload
-app.post('/api/upload', upload.single('image'), (req, res) => {
-    if (!req.file) {
-        return res.status(400).json({ error: 'No file uploaded' });
-    }
-    res.json({ imagePath: `/product_images/${req.file.filename}` });
-});
 
 
 app.post('/api/products/add', (req, res) => {
